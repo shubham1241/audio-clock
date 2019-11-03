@@ -1,0 +1,24 @@
+# importing the pyttsx library 
+import pyttsx3 ,time
+# initialisation 
+def listen(a):
+    engine = pyttsx3.init() 
+
+    # testing 
+    engine.changerate=800
+    engine.say(a)  
+    engine.runAndWait() 
+t = time.localtime()
+current_time = time.strftime("%H%M%S", t)
+b=current_time.split()
+hr1=int(b[0][0:2])
+m1=int(b[0][2:4])
+s1=int(b[0][4:6])
+x="am"
+if hr1>12:
+    x="pm"
+    hr1-=12
+a="The current time is " +str(hr1) +str(x) +" and "+str(m1) +" minutes "+str(s1) +" seconds   "
+listen(a)
+
+
